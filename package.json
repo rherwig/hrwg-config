@@ -1,0 +1,33 @@
+{
+    "name": "@hrwg/config",
+    "private": true,
+    "description": "A collection of configuration files for linters, tests and more.",
+    "workspaces": [
+        "packages/*"
+    ],
+    "scripts": {
+        "clean": "lerna clean",
+        "version": "lerna version --no-private",
+        "publish": "lerna publish --no-private"
+    },
+    "keywords": [
+        "eslint",
+        "stylelint",
+        "tailwind",
+        "vitest",
+        "configuration",
+        "hrwg",
+        "monorepo"
+    ],
+    "author": "Rico Herwig <rico@hrwg.de>",
+    "license": "MIT",
+    "devDependencies": {
+        "lerna": "^6.0.1"
+    },
+    "dependencies": {
+        "@hrwg/eslint-config": "workspace:*",
+        "@types/node": "^18.11.7",
+        "eslint": "^8.26.0",
+        "typescript": "^4.8.4"
+    }
+}
