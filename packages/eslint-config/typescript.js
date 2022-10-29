@@ -1,5 +1,5 @@
 module.exports = {
     extends: [
-        require('@kellerkinder/eslint-config/typescript'),
+        require.resolve('@kellerkinder/eslint-config/typescript'),
     ],
 };
