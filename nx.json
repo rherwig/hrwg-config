@@ -1,26 +1,49 @@
 {
-  "extends": "nx/presets/npm.json",
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "@nrwl/nx-cloud",
-      "options": {
-        "cacheableOperations": [
-          "build"
+    "extends": "nx/presets/npm.json",
+    "npmScope": "hrwg",
+    "workspaceLayout": {
+        "appsDir": "apps",
+        "libsDir": "packages"
+    },
+    "namedInputs": {
+        "default": [
+            "{projectRoot}/**/*",
+            "!{projectRoot}/**/*.test.{js,ts}",
+            "sharedGlobals"
         ],
-        "parallel": 3,
-        "accessToken": "MzI2ODkzMTMtZGE5Ny00YjljLWI3MTctMGVhNjVhZWU4YjA1fHJlYWQtd3JpdGU="
-      }
-    }
-  },
-  "targetDefaults": {
-    "build": {
-      "dependsOn": [
-        "^build"
-      ],
-      "outputs": [
-        "{projectRoot}/lib"
-      ]
-    }
-  },
-  "defaultBase": "main"
+        "production": [
+            "default"
+        ],
+        "sharedGlobals": []
+    },
+    "tasksRunnerOptions": {
+        "default": {
+            "runner": "@nrwl/nx-cloud",
+            "options": {
+                "cacheableOperations": [
+                    "build",
+                    "lint",
+                    "test"
+                ],
+                "parallel": 3,
+                "accessToken": "MzI2ODkzMTMtZGE5Ny00YjljLWI3MTctMGVhNjVhZWU4YjA1fHJlYWQtd3JpdGU="
+            }
+        }
+    },
+    "targetDefaults": {
+        "build": {
+            "dependsOn": [
+                "^build"
+            ],
+            "inputs": [
+                "production",
+                "^production"
+            ],
+            "outputs": [
+                "{projectRoot}/dist",
+                "{projectRoot}/lib"
+            ]
+        }
+    },
+    "defaultBase": "main"
 }
