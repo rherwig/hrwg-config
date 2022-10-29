@@ -7,6 +7,9 @@
         "packages/*"
     ],
     "scripts": {
+        "prepare": "husky install",
+        "test": "nx run-many --target test",
+        "build": "nx run-many --target build",
         "changeset": "changeset",
         "version": "changeset version",
         "publish": "changeset publish"
@@ -25,9 +28,12 @@
     "dependencies": {
         "@changesets/cli": "^2.25.0",
         "@hrwg/eslint-config": "workspace:*",
+        "@nrwl/nx-cloud": "^15.0.0",
         "@types/node": "^18.11.7",
         "eslint": "^8.26.0",
         "husky": "^8.0.1",
-        "typescript": "^4.8.4"
+        "nx": "^15.0.4",
+        "typescript": "^4.8.4",
+        "vitest": "^0.24.3"
     }
 }
