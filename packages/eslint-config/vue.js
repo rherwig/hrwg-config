@@ -2,7 +2,7 @@ const rules = require('./rules/vue');
 
 module.exports = {
     extends: [
-        require('@kellerkinder/eslint-config/vue'),
+        require.resolve('@kellerkinder/eslint-config/vue'),
     ],
     rules,
 };
